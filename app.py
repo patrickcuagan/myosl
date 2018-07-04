@@ -15,6 +15,18 @@ def home():
 def transform(text_file_contents):
     return text_file_contents.replace("=", ",")
 
+@app.route('/postcsv', methods=["POST"])
+def postcsv():
+	f = request.files['data_file']
+	path = f.temporary_file_path
+	if not f:
+		return "No file"
+
+	df = pd.read_csv(f)
+	print(df)
+
+	return render_template('csv.html', data=df, path=path)
+
 @app.route('/transform/<path:file_path>', methods=["GET", "POST"])
 def transform_view(file_path):
     # f = request.files['data_file']
@@ -29,7 +41,6 @@ def transform_view(file_path):
     df = pd.read_csv(f)
     print(df)
 
-    # return render_template('csv.html', data=df)
     return 'a'
 
 if __name__ == "__main__":
