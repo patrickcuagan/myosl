@@ -25,8 +25,9 @@ def upload_file():
 		print(f.decode("utf-8"))
 
 		decoded_f = f.decode("utf-8")
-
-		df = decoded_f.to_csv()
+		json_f = pd.read_json(decoded_f)
+		
+		df = json_f.to_csv()
 		print(df)
 		# df = pd.read_csv(f)
 
