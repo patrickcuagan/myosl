@@ -16,8 +16,8 @@ def home():
 @app.route('/upload', methods= ['GET', 'POST'])
 def upload_file():
 	if request.method == 'POST':
-		print("RECEIVED FILE RECEIVED FILE RECEIVED FILE RECEIVED FILE RECEIVED FILE RECEIVED FILE")
 		f = request.files['files']
+		print(f)
 		df = pd.read_csv(f)
 
 		print(df) 
