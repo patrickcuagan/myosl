@@ -25,9 +25,11 @@ def upload_file():
 		print(f.decode("utf-8"))
 
 		decoded_f = f.decode("utf-8")
-		json_f = pd.read_json(decoded_f)
 		
-		df = json_f.to_csv()
+		jsonfile = json.loads(decoded_f)
+
+		df = pd.df(json['gyro-left'])
+
 		print(df)
 		# df = pd.read_csv(f)
 
