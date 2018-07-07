@@ -16,11 +16,12 @@ def home():
 @app.route('/upload', methods= ['GET', 'POST'])
 def upload_file():
 	if request.method == 'POST':
-		f = request.files['files']
+		# f = request.files['files']
+		f = request.data
 		print(f)
-		df = pd.read_csv(f)
+		# df = pd.read_csv(f)
 
-		print(df) 
+		# print(df) 
 		return 'success'
 	else:
 		return 'fail'
