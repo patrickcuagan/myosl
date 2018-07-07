@@ -16,15 +16,16 @@ def home():
 @app.route('/upload', methods= ['GET', 'POST'])
 def upload_file():
 	if request.method == 'POST':
+		print("RECEIVED FILE RECEIVED FILE RECEIVED FILE RECEIVED FILE RECEIVED FILE RECEIVED FILE")
 		f = request.files['files']
 		df = pd.read_csv(f)
 
 		print(df) 
-		return '100'
+		return 'success'
 	else:
-		return '0'
+		return 'fail'
 
-	return '1'
+	return 'fail'
 
 if __name__ == "__main__":
     app.run(debug=True)
