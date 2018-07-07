@@ -19,21 +19,10 @@ def upload_file():
 	if request.method == 'POST':
 		# f = request.files['files']
 		f = request.data
-		print(f)
-		print(type(f))
-
-		print('test')
-		print(f.decode("utf-8"))
-
 		decoded_f = f.decode("utf-8")
-		
-		jsonfile = json.loads(decoded_f)
-		
-		
-		df = pd.DataFrame(data = jsonfile)
-
+		x = json.loads(decoded_f)
+		df = pd.DataFrame.from_dict(x, orient='index')
 		print(df)
-		# df = pd.read_csv(f)
 
 		# print(df) 
 		return 'success'
