@@ -19,8 +19,9 @@ def upload_file():
 		# f = request.files['files']
 		f = request.data
 		print(f)
-		df = pd.read_json(f)
-		df = df.to_csv
+		print(type(f))
+
+		df = df.to_csv(f)
 		print(df)
 		# df = pd.read_csv(f)
 
