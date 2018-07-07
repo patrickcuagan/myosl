@@ -21,7 +21,12 @@ def upload_file():
 		print(f)
 		print(type(f))
 
-		df = df.to_csv(f)
+		print('test')
+		print(f.decode("utf-8"))
+
+		decoded_f = f.decode("utf-8")
+
+		df = decoded_f.to_csv()
 		print(df)
 		# df = pd.read_csv(f)
 
